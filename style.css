@@ -308,6 +308,10 @@ form a button {
     margin-right: 10px;
 }
 
+#but {
+    width: 550px;
+}
+
 button:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover,
@@ -421,7 +425,7 @@ details.centered table {
     background-color: #F8FAFB;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
-    height: 300px;
+    height: 245px;
     overflow-y: auto;
     box-sizing: border-box;
 }
@@ -447,6 +451,10 @@ details.centered table {
 @media screen and (max-width: 1024px) and (min-width: 769px) {
     main {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    #but {
+        width: 100%;
     }
 }
 
@@ -483,10 +491,12 @@ details.centered table {
     .mobile-detail {
         width: calc(50% - 8px);
         min-width: 120px;
+        text-align: center;
     }
 
     .mobile-controls > .mobile-detail:only-child {
-        width: 220px;
+        width: 300px;
+        text-align: center;
     }
 
     .mobile-btn {
@@ -579,6 +589,7 @@ details.centered table {
 
     a[href="#top"] {
         margin: 20px 10px;
+        text-decoration: none;
     }
 
     a[href="#top"] button {
@@ -591,5 +602,9 @@ details.centered table {
         margin: 10px;
         padding: 15px;
         max-width: none;
+    }
+
+    #but {
+        width: 100%;
     }
 }
