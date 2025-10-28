@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Registration</title>
+</head>
+<body>
+    <header>
+        <h1>Taylor's World 🌎</h1>
+        <p>Not just albums — chapters of a life in lyrics. 📖✨</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Swiftie Hub 🏠</a></li>
+            <li><a href="login.html">Join the Era 🚪</a></li>
+            <li><a href="registration.html">Become a Swiftie 💖</a></li>
+            <li><a href="feedback.html">Share Your Story 📝</a></li>
+        </ul>
+    </nav>
+
+    <div class="mobile-controls" aria-hidden="false">
+        <details class="mobile-detail nav-detail">
+            <summary class="mobile-btn">Menu 📱</summary>
+            <ul class="mobile-menu">
+                <li><a href="index.html">Swiftie Hub 🏠</a></li>
+                <li><a href="login.html">Join the Era 🚪</a></li>
+                <li><a href="registration.html">Become a Swiftie 💖</a></li>
+                <li><a href="feedback.html">Share Your Story 📝</a></li>
+                <li><a href="thankyou.html">Thank You 🙏</a></li>
+            </ul>
+        </details>
+    </div>
+
+    <h2>Registration 🌟</h2>
+    <form id="registrationForm" method="post">
+        <fieldset>
+            <label for="login1">Username 👤</label>
+            <input type="text" id="login1" name="login1" placeholder="Taylor Swift"> <br>
+            <label for="email">Email 📧</label>
+            <input type="email" id="email" name="email" placeholder="example@domain.com"> <br>
+            <label for="password1">Password 🔑</label>
+            <input type="password" id="password1" name="password1" placeholder="Secret era"> <br>
+            <label for="password2">Confirm Password 🔒</label>
+            <input type="password" id="password2" name="password2" placeholder="Secret era"> <br>
+        </fieldset> <br>    
+        <input type="reset" value="Clear Form 🗑️">
+        <button type="button">Sign Up 🎉</button>
+    </form>
+    <footer>
+        <p>Music 🎶, magic ✨, and a little bit of Swiftiness included. 💖</p>
+        <p>© 2025 | Developed by 3rd-year Applied Linguistics student Mykhailo Babilia. 🎓</p>
+    </footer>
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzNh53uv30g9lJcBhXpTx37Ln-7ePgi3yScC1i1jfPZM8gQVR919blHO6ej-nyStngDhg/exec'; // Заміни на твій Web App URL
+      const form = document.getElementById('registrationForm');
+      const button = form.querySelector('button[type="button"]');
+
+      button.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const data = {
+          sheet: 'Registration',
+          login1: formData.get('login1') || '',
+          email: formData.get('email') || '',
+          password1: formData.get('password1') || '',
+          password2: formData.get('password2') || ''
+        };
+
+        console.log('Sending data:', data); // Дебаг
+
+        try {
+          const response = await fetch(scriptURL, {
+            method: 'POST',
+            body: new URLSearchParams(data),
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+          });
+          const result = await response.json();
+          if (result.result === 'success') {
+            window.location.href = 'thankyou.html';
+          } else {
+            console.error('Server error:', result.error);
+            alert('Помилка відправки: ' + result.error);
+          }
+        } catch (error) {
+          console.error('Client error:', error);
+          alert('Помилка: ' + error.message);
+        }
+      });
+    </script>
+</body>
+</html>
