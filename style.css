@@ -425,7 +425,7 @@ details.centered table {
     background-color: #F8FAFB;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
-    height: 220px;
+    height: 260px;
     overflow-y: auto;
     box-sizing: border-box;
 }
@@ -492,7 +492,7 @@ details.centered table {
         width: calc(50% - 8px);
         min-width: 120px;
         text-align: center;
-        font-size: 0.8em;
+        /*font-size: 0.8em;*/
     }
 
     .mobile-controls > .mobile-detail:only-child {
